@@ -118,6 +118,76 @@ export default class SDK {
         headers: { Authorization: this.auth },
       });
     },
+    /**
+     * Create an ant in the rfid
+     *
+     * @param {CreateAntRequest} req createAnt request
+     * @returns {Promise<CreateAntResponse>} The ant created
+     */
+    createAnt: req => {
+      const { rfidIndex, body } = req || {};
+
+      if (!rfidIndex) throw new Error("rfidIndex is required for createAnt");
+      if (!body) throw new Error("requetBody is required for createAnt");
+
+      return fetch(`${this.base}/rfids/${rfidIndex}/ants`, {
+        method: "POST",
+        body,
+        headers: { Authorization: this.auth },
+      });
+    },
+    /**
+     * Find ant device of the rfid by index
+     *
+     * @param {GetRAntRequest} req getRAnt request
+     * @returns {Promise<GetRAntResponse>} Expected response to a valid request
+     */
+    getRAnt: req => {
+      const { rfidIndex, antIndex } = req || {};
+
+      if (!rfidIndex) throw new Error("rfidIndex is required for getRAnt");
+      if (!antIndex) throw new Error("antIndex is required for getRAnt");
+
+      return fetch(`${this.base}/rfids/${rfidIndex}/Ants/${antIndex}`, {
+        method: "GET",
+        headers: { Authorization: this.auth },
+      });
+    },
+    /**
+     * Update ant device of the rfid
+     *
+     * @param {UpdateAntRequest} req updateAnt request
+     * @returns {Promise<UpdateAntResponse>} The ant
+     */
+    updateAnt: req => {
+      const { rfidIndex, antIndex, body } = req || {};
+
+      if (!rfidIndex) throw new Error("rfidIndex is required for updateAnt");
+      if (!antIndex) throw new Error("antIndex is required for updateAnt");
+      if (!body) throw new Error("requetBody is required for updateAnt");
+
+      return fetch(`${this.base}/rfids/${rfidIndex}/Ants/${antIndex}`, {
+        method: "PUT",
+        body,
+        headers: { Authorization: this.auth },
+      });
+    },
+    /**
+     * Delete ant device of the rfid
+     *
+     * @param {DeleteAntRequest} req deleteAnt request
+     */
+    deleteAnt: req => {
+      const { rfidIndex, antIndex } = req || {};
+
+      if (!rfidIndex) throw new Error("rfidIndex is required for deleteAnt");
+      if (!antIndex) throw new Error("antIndex is required for deleteAnt");
+
+      return fetch(`${this.base}/rfids/${rfidIndex}/Ants/${antIndex}`, {
+        method: "DELETE",
+        headers: { Authorization: this.auth },
+      });
+    },
   };
   /**
    * camera's methods

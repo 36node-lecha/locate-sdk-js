@@ -38,6 +38,22 @@ export interface RfidAPI {
    * Delete rfid device
    */
   deleteRfid(req: DeleteRfidRequest): Promise<void>;
+  /**
+   * Create an ant in the rfid
+   */
+  createAnt(req: CreateAntRequest): Promise<CreateAntResponse>;
+  /**
+   * Find ant device of the rfid by index
+   */
+  getRAnt(req: GetRAntRequest): Promise<GetRAntResponse>;
+  /**
+   * Update ant device of the rfid
+   */
+  updateAnt(req: UpdateAntRequest): Promise<UpdateAntResponse>;
+  /**
+   * Delete ant device of the rfid
+   */
+  deleteAnt(req: DeleteAntRequest): Promise<void>;
 }
 export interface CameraAPI {
   /**
@@ -101,19 +117,19 @@ export interface ListRfidsResponse {
     /**
      * 天线
      */
-    ants: {
+    ants?: {
       /**
        * 天线编号
        */
-      no: number;
+      no?: number;
       /**
        * 横坐标
        */
-      x: number;
+      x?: number;
       /**
        * 纵坐标
        */
-      y: number;
+      y?: number;
     }[];
     /**
      * 设备工作状态
@@ -154,19 +170,19 @@ export interface CreateRfidRequest {
     /**
      * 天线
      */
-    ants: {
+    ants?: {
       /**
        * 天线编号
        */
-      no: number;
+      no?: number;
       /**
        * 横坐标
        */
-      x: number;
+      x?: number;
       /**
        * 纵坐标
        */
-      y: number;
+      y?: number;
     }[];
     /**
      * 设备工作状态
@@ -190,19 +206,19 @@ export interface CreateRfidResponse {
     /**
      * 天线
      */
-    ants: {
+    ants?: {
       /**
        * 天线编号
        */
-      no: number;
+      no?: number;
       /**
        * 横坐标
        */
-      x: number;
+      x?: number;
       /**
        * 纵坐标
        */
-      y: number;
+      y?: number;
     }[];
     /**
      * 设备工作状态
@@ -243,19 +259,19 @@ export interface GetRfidResponse {
     /**
      * 天线
      */
-    ants: {
+    ants?: {
       /**
        * 天线编号
        */
-      no: number;
+      no?: number;
       /**
        * 横坐标
        */
-      x: number;
+      x?: number;
       /**
        * 纵坐标
        */
-      y: number;
+      y?: number;
     }[];
     /**
      * 设备工作状态
@@ -294,19 +310,19 @@ export interface UpdateRfidRequest {
     /**
      * 天线
      */
-    ants: {
+    ants?: {
       /**
        * 天线编号
        */
-      no: number;
+      no?: number;
       /**
        * 横坐标
        */
-      x: number;
+      x?: number;
       /**
        * 纵坐标
        */
-      y: number;
+      y?: number;
     }[];
     /**
      * 设备工作状态
@@ -330,19 +346,19 @@ export interface UpdateRfidResponse {
     /**
      * 天线
      */
-    ants: {
+    ants?: {
       /**
        * 天线编号
        */
-      no: number;
+      no?: number;
       /**
        * 横坐标
        */
-      x: number;
+      x?: number;
       /**
        * 纵坐标
        */
-      y: number;
+      y?: number;
     }[];
     /**
      * 设备工作状态
@@ -366,6 +382,139 @@ export interface UpdateRfidResponse {
 }
 export interface DeleteRfidRequest {
   rfidIndex: string;
+}
+export interface CreateAntRequest {
+  rfidIndex: string;
+  /**
+   * 天线
+   */
+  body: {
+    /**
+     * 天线编号
+     */
+    no: number;
+    /**
+     * 横坐标
+     */
+    x: number;
+    /**
+     * 纵坐标
+     */
+    y: number;
+  };
+}
+export interface CreateAntResponse {
+  /**
+   * 天线
+   */
+  body: {
+    /**
+     * 天线编号
+     */
+    no?: number;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+  } & {
+    /**
+     * mongodb id
+     */
+    id: string;
+    updateAt?: Date;
+    updateBy?: string;
+    createAt?: Date;
+    createBy?: string;
+  };
+}
+export interface GetRAntRequest {
+  rfidIndex: string;
+  antIndex: string;
+}
+export interface GetRAntResponse {
+  /**
+   * 天线
+   */
+  body: {
+    /**
+     * 天线编号
+     */
+    no?: number;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+  } & {
+    /**
+     * mongodb id
+     */
+    id: string;
+    updateAt?: Date;
+    updateBy?: string;
+    createAt?: Date;
+    createBy?: string;
+  };
+}
+export interface UpdateAntRequest {
+  rfidIndex: string;
+  antIndex: string;
+  /**
+   * 天线
+   */
+  body: {
+    /**
+     * 天线编号
+     */
+    no?: number;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+  };
+}
+export interface UpdateAntResponse {
+  /**
+   * 天线
+   */
+  body: {
+    /**
+     * 天线编号
+     */
+    no?: number;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+  } & {
+    /**
+     * mongodb id
+     */
+    id: string;
+    updateAt?: Date;
+    updateBy?: string;
+    createAt?: Date;
+    createBy?: string;
+  };
+}
+export interface DeleteAntRequest {
+  rfidIndex: string;
+  antIndex: string;
 }
 export interface ListCamerasRequest {
   query?: {
@@ -800,6 +949,24 @@ export interface AntDoc {
   /**
    * 天线编号
    */
+  no?: number;
+  /**
+   * 横坐标
+   */
+  x?: number;
+  /**
+   * 纵坐标
+   */
+  y?: number;
+}
+
+/**
+ * 天线
+ */
+export interface AntCreateDoc {
+  /**
+   * 天线编号
+   */
   no: number;
   /**
    * 横坐标
@@ -810,6 +977,33 @@ export interface AntDoc {
    */
   y: number;
 }
+
+/**
+ * 天线
+ */
+export type Ant = {
+  /**
+   * 天线编号
+   */
+  no?: number;
+  /**
+   * 横坐标
+   */
+  x?: number;
+  /**
+   * 纵坐标
+   */
+  y?: number;
+} & {
+  /**
+   * mongodb id
+   */
+  id: string;
+  updateAt?: Date;
+  updateBy?: string;
+  createAt?: Date;
+  createBy?: string;
+};
 
 /**
  * Rfid device Doc
@@ -826,19 +1020,19 @@ export interface RfidDoc {
   /**
    * 天线
    */
-  ants: {
+  ants?: {
     /**
      * 天线编号
      */
-    no: number;
+    no?: number;
     /**
      * 横坐标
      */
-    x: number;
+    x?: number;
     /**
      * 纵坐标
      */
-    y: number;
+    y?: number;
   }[];
   /**
    * 设备工作状态
@@ -861,19 +1055,19 @@ export type RfidCreateDoc = {
   /**
    * 天线
    */
-  ants: {
+  ants?: {
     /**
      * 天线编号
      */
-    no: number;
+    no?: number;
     /**
      * 横坐标
      */
-    x: number;
+    x?: number;
     /**
      * 纵坐标
      */
-    y: number;
+    y?: number;
   }[];
   /**
    * 设备工作状态
@@ -896,19 +1090,19 @@ export type Rfid = {
   /**
    * 天线
    */
-  ants: {
+  ants?: {
     /**
      * 天线编号
      */
-    no: number;
+    no?: number;
     /**
      * 横坐标
      */
-    x: number;
+    x?: number;
     /**
      * 纵坐标
      */
-    y: number;
+    y?: number;
   }[];
   /**
    * 设备工作状态
