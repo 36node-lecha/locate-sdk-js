@@ -7,6 +7,7 @@ declare class SDK {
 
   rfid: RfidAPI;
   camera: CameraAPI;
+  door: DoorAPI;
   target: TargetAPI;
   aics: AicsAPI;
 }
@@ -59,6 +60,12 @@ export interface CameraAPI {
    * Delete camera
    */
   deleteCamera(req: DeleteCameraRequest): Promise<void>;
+}
+export interface DoorAPI {
+  /**
+   * List doors
+   */
+  listDoors(req: ListDoorsRequest): Promise<ListDoorsResponse>;
 }
 export interface TargetAPI {
   /**
@@ -627,6 +634,39 @@ export interface UpdateCameraResponse {
 export interface DeleteCameraRequest {
   cameraIndex: string;
 }
+export interface ListDoorsRequest {
+  query?: {
+    _limit?: number;
+    _offset?: number;
+  };
+}
+export interface ListDoorsResponse {
+  body: {
+    /**
+     * 设备id
+     */
+    indexCode: string;
+    /**
+     * 通道类型
+     */
+    channelType?: string;
+    /**
+     * 编号
+     */
+    doorNo?: string;
+    /**
+     * 名称
+     */
+    name?: string;
+    /**
+     * 所属区域
+     */
+    regionName?: string;
+  }[];
+  headers: {
+    "x-total-count"?: number;
+  };
+}
 export interface ListTargetsRequest {
   query?: {
     _limit?: number;
@@ -1002,6 +1042,84 @@ export type Camera = {
   updateBy?: string;
   createAt?: Date;
   createBy?: string;
+};
+
+/**
+ * Door Doc
+ */
+export interface DoorDoc {
+  /**
+   * 设备id
+   */
+  indexCode: string;
+  /**
+   * 通道类型
+   */
+  channelType?: string;
+  /**
+   * 编号
+   */
+  doorNo?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 所属区域
+   */
+  regionName?: string;
+}
+
+/**
+ * Door摄像头创建文档
+ */
+export type DoorCreateDoc = {
+  /**
+   * 设备id
+   */
+  indexCode: string;
+  /**
+   * 通道类型
+   */
+  channelType?: string;
+  /**
+   * 编号
+   */
+  doorNo?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 所属区域
+   */
+  regionName?: string;
+};
+
+/**
+ * Door摄像头
+ */
+export type Door = {
+  /**
+   * 设备id
+   */
+  indexCode: string;
+  /**
+   * 通道类型
+   */
+  channelType?: string;
+  /**
+   * 编号
+   */
+  doorNo?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 所属区域
+   */
+  regionName?: string;
 };
 
 /**
