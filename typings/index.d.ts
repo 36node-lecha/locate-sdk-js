@@ -111,23 +111,6 @@ export interface ListRfidsResponse {
      */
     type?: string;
     /**
-     * 天线
-     */
-    ants?: {
-      /**
-       * 天线编号
-       */
-      no: number;
-      /**
-       * 横坐标
-       */
-      x?: number;
-      /**
-       * 纵坐标
-       */
-      y?: number;
-    }[];
-    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -174,7 +157,7 @@ export interface ListRfidsResponse {
       /**
        * 天线编号
        */
-      no: number;
+      no: string;
     })[];
   })[];
   headers: {
@@ -191,23 +174,6 @@ export interface CreateRfidRequest {
      */
     type?: string;
     /**
-     * 天线
-     */
-    ants?: {
-      /**
-       * 天线编号
-       */
-      no: number;
-      /**
-       * 横坐标
-       */
-      x?: number;
-      /**
-       * 纵坐标
-       */
-      y?: number;
-    }[];
-    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -223,7 +189,7 @@ export interface CreateRfidRequest {
       /**
        * 天线编号
        */
-      no: number;
+      no: string;
       /**
        * 横坐标
        */
@@ -245,23 +211,6 @@ export interface CreateRfidResponse {
      */
     type?: string;
     /**
-     * 天线
-     */
-    ants?: {
-      /**
-       * 天线编号
-       */
-      no: number;
-      /**
-       * 横坐标
-       */
-      x?: number;
-      /**
-       * 纵坐标
-       */
-      y?: number;
-    }[];
-    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -308,7 +257,7 @@ export interface CreateRfidResponse {
       /**
        * 天线编号
        */
-      no: number;
+      no: string;
     })[];
   };
 }
@@ -325,23 +274,6 @@ export interface GetRfidResponse {
      */
     type?: string;
     /**
-     * 天线
-     */
-    ants?: {
-      /**
-       * 天线编号
-       */
-      no: number;
-      /**
-       * 横坐标
-       */
-      x?: number;
-      /**
-       * 纵坐标
-       */
-      y?: number;
-    }[];
-    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -388,7 +320,7 @@ export interface GetRfidResponse {
       /**
        * 天线编号
        */
-      no: number;
+      no: string;
     })[];
   };
 }
@@ -402,23 +334,6 @@ export interface UpdateRfidRequest {
      * 设备类型
      */
     type?: string;
-    /**
-     * 天线
-     */
-    ants?: {
-      /**
-       * 天线编号
-       */
-      no: number;
-      /**
-       * 横坐标
-       */
-      x?: number;
-      /**
-       * 纵坐标
-       */
-      y?: number;
-    }[];
     /**
      * 设备工作状态
      */
@@ -435,23 +350,6 @@ export interface UpdateRfidResponse {
      */
     type?: string;
     /**
-     * 天线
-     */
-    ants?: {
-      /**
-       * 天线编号
-       */
-      no: number;
-      /**
-       * 横坐标
-       */
-      x?: number;
-      /**
-       * 纵坐标
-       */
-      y?: number;
-    }[];
-    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -498,7 +396,7 @@ export interface UpdateRfidResponse {
       /**
        * 天线编号
        */
-      no: number;
+      no: string;
     })[];
   };
 }
@@ -514,7 +412,7 @@ export interface CreateAntRequest {
     /**
      * 天线编号
      */
-    no: number;
+    no: string;
     /**
      * 横坐标
      */
@@ -551,7 +449,7 @@ export interface CreateAntResponse {
     /**
      * 天线编号
      */
-    no: number;
+    no: string;
   };
 }
 export interface GetRAntRequest {
@@ -584,7 +482,7 @@ export interface GetRAntResponse {
     /**
      * 天线编号
      */
-    no: number;
+    no: string;
   };
 }
 export interface UpdateAntRequest {
@@ -630,7 +528,7 @@ export interface UpdateAntResponse {
     /**
      * 天线编号
      */
-    no: number;
+    no: string;
   };
 }
 export interface DeleteAntRequest {
@@ -1086,7 +984,7 @@ export interface AntCreateDoc {
   /**
    * 天线编号
    */
-  no: number;
+  no: string;
   /**
    * 横坐标
    */
@@ -1122,7 +1020,7 @@ export type Ant = {
   /**
    * 天线编号
    */
-  no: number;
+  no: string;
 };
 
 /**
@@ -1133,23 +1031,6 @@ export interface RfidDoc {
    * 设备类型
    */
   type?: string;
-  /**
-   * 天线
-   */
-  ants?: {
-    /**
-     * 天线编号
-     */
-    no: number;
-    /**
-     * 横坐标
-     */
-    x?: number;
-    /**
-     * 纵坐标
-     */
-    y?: number;
-  }[];
   /**
    * 设备工作状态
    */
@@ -1164,23 +1045,6 @@ export type RfidCreateDoc = {
    * 设备类型
    */
   type?: string;
-  /**
-   * 天线
-   */
-  ants?: {
-    /**
-     * 天线编号
-     */
-    no: number;
-    /**
-     * 横坐标
-     */
-    x?: number;
-    /**
-     * 纵坐标
-     */
-    y?: number;
-  }[];
   /**
    * 设备工作状态
    */
@@ -1197,7 +1061,7 @@ export type RfidCreateDoc = {
     /**
      * 天线编号
      */
-    no: number;
+    no: string;
     /**
      * 横坐标
      */
@@ -1217,23 +1081,6 @@ export type Rfid = {
    * 设备类型
    */
   type?: string;
-  /**
-   * 天线
-   */
-  ants?: {
-    /**
-     * 天线编号
-     */
-    no: number;
-    /**
-     * 横坐标
-     */
-    x?: number;
-    /**
-     * 纵坐标
-     */
-    y?: number;
-  }[];
   /**
    * 设备工作状态
    */
@@ -1281,7 +1128,7 @@ export type Rfid = {
     /**
      * 天线编号
      */
-    no: number;
+    no: string;
   })[];
 };
 
