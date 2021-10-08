@@ -139,14 +139,14 @@ export default class SDK {
     /**
      * Find ant device of the rfid by index
      *
-     * @param {GetRAntRequest} req getRAnt request
-     * @returns {Promise<GetRAntResponse>} Expected response to a valid request
+     * @param {GetAntRequest} req getAnt request
+     * @returns {Promise<GetAntResponse>} Expected response to a valid request
      */
-    getRAnt: req => {
+    getAnt: req => {
       const { rfidIndex, antIndex } = req || {};
 
-      if (!rfidIndex) throw new Error("rfidIndex is required for getRAnt");
-      if (!antIndex) throw new Error("antIndex is required for getRAnt");
+      if (!rfidIndex) throw new Error("rfidIndex is required for getAnt");
+      if (!antIndex) throw new Error("antIndex is required for getAnt");
 
       return fetch(`${this.base}/rfids/${rfidIndex}/Ants/${antIndex}`, {
         method: "GET",

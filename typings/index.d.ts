@@ -45,7 +45,7 @@ export interface RfidAPI {
   /**
    * Find ant device of the rfid by index
    */
-  getRAnt(req: GetRAntRequest): Promise<GetRAntResponse>;
+  getAnt(req: GetAntRequest): Promise<GetAntResponse>;
   /**
    * Update ant device of the rfid
    */
@@ -157,7 +157,7 @@ export interface ListRfidsResponse {
       /**
        * 天线编号
        */
-      no: string;
+      no: number;
     })[];
   })[];
   headers: {
@@ -189,7 +189,7 @@ export interface CreateRfidRequest {
       /**
        * 天线编号
        */
-      no: string;
+      no: number;
       /**
        * 横坐标
        */
@@ -257,7 +257,7 @@ export interface CreateRfidResponse {
       /**
        * 天线编号
        */
-      no: string;
+      no: number;
     })[];
   };
 }
@@ -320,7 +320,7 @@ export interface GetRfidResponse {
       /**
        * 天线编号
        */
-      no: string;
+      no: number;
     })[];
   };
 }
@@ -396,7 +396,7 @@ export interface UpdateRfidResponse {
       /**
        * 天线编号
        */
-      no: string;
+      no: number;
     })[];
   };
 }
@@ -412,7 +412,7 @@ export interface CreateAntRequest {
     /**
      * 天线编号
      */
-    no: string;
+    no: number;
     /**
      * 横坐标
      */
@@ -449,14 +449,14 @@ export interface CreateAntResponse {
     /**
      * 天线编号
      */
-    no: string;
+    no: number;
   };
 }
-export interface GetRAntRequest {
+export interface GetAntRequest {
   rfidIndex: string;
   antIndex: string;
 }
-export interface GetRAntResponse {
+export interface GetAntResponse {
   /**
    * 天线
    */
@@ -482,7 +482,7 @@ export interface GetRAntResponse {
     /**
      * 天线编号
      */
-    no: string;
+    no: number;
   };
 }
 export interface UpdateAntRequest {
@@ -528,7 +528,7 @@ export interface UpdateAntResponse {
     /**
      * 天线编号
      */
-    no: string;
+    no: number;
   };
 }
 export interface DeleteAntRequest {
@@ -984,7 +984,7 @@ export interface AntCreateDoc {
   /**
    * 天线编号
    */
-  no: string;
+  no: number;
   /**
    * 横坐标
    */
@@ -1020,7 +1020,7 @@ export type Ant = {
   /**
    * 天线编号
    */
-  no: string;
+  no: number;
 };
 
 /**
@@ -1061,7 +1061,7 @@ export type RfidCreateDoc = {
     /**
      * 天线编号
      */
-    no: string;
+    no: number;
     /**
      * 横坐标
      */
@@ -1128,7 +1128,7 @@ export type Rfid = {
     /**
      * 天线编号
      */
-    no: string;
+    no: number;
   })[];
 };
 
