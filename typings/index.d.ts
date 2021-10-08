@@ -107,10 +107,6 @@ export interface ListRfidsRequest {
 export interface ListRfidsResponse {
   body: ({
     /**
-     * 设备号 deviceNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -121,7 +117,7 @@ export interface ListRfidsResponse {
       /**
        * 天线编号
        */
-      no?: number;
+      no: number;
       /**
        * 横坐标
        */
@@ -149,6 +145,37 @@ export interface ListRfidsResponse {
      * 心跳时间
      */
     heartbeatAt?: Date;
+    /**
+     * RFID 设备号
+     */
+    no: string;
+    /**
+     * 天线
+     */
+    ants?: ({
+      /**
+       * 横坐标
+       */
+      x?: number;
+      /**
+       * 纵坐标
+       */
+      y?: number;
+    } & {
+      /**
+       * mongodb id
+       */
+      id: string;
+      updateAt?: Date;
+      updateBy?: string;
+      createAt?: Date;
+      createBy?: string;
+    } & {
+      /**
+       * 天线编号
+       */
+      no: number;
+    })[];
   })[];
   headers: {
     "x-total-count"?: number;
@@ -160,10 +187,6 @@ export interface CreateRfidRequest {
    */
   body: {
     /**
-     * 设备号 deviceNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -174,7 +197,7 @@ export interface CreateRfidRequest {
       /**
        * 天线编号
        */
-      no?: number;
+      no: number;
       /**
        * 横坐标
        */
@@ -188,6 +211,28 @@ export interface CreateRfidRequest {
      * 设备工作状态
      */
     state?: "ON" | "OFF";
+  } & {
+    /**
+     * RFID 设备号
+     */
+    no: string;
+    /**
+     * 天线
+     */
+    ants?: {
+      /**
+       * 天线编号
+       */
+      no: number;
+      /**
+       * 横坐标
+       */
+      x?: number;
+      /**
+       * 纵坐标
+       */
+      y?: number;
+    }[];
   };
 }
 export interface CreateRfidResponse {
@@ -195,10 +240,6 @@ export interface CreateRfidResponse {
    * Rfid device
    */
   body: {
-    /**
-     * 设备号 deviceNo
-     */
-    no: string;
     /**
      * 设备类型
      */
@@ -210,7 +251,7 @@ export interface CreateRfidResponse {
       /**
        * 天线编号
        */
-      no?: number;
+      no: number;
       /**
        * 横坐标
        */
@@ -238,6 +279,37 @@ export interface CreateRfidResponse {
      * 心跳时间
      */
     heartbeatAt?: Date;
+    /**
+     * RFID 设备号
+     */
+    no: string;
+    /**
+     * 天线
+     */
+    ants?: ({
+      /**
+       * 横坐标
+       */
+      x?: number;
+      /**
+       * 纵坐标
+       */
+      y?: number;
+    } & {
+      /**
+       * mongodb id
+       */
+      id: string;
+      updateAt?: Date;
+      updateBy?: string;
+      createAt?: Date;
+      createBy?: string;
+    } & {
+      /**
+       * 天线编号
+       */
+      no: number;
+    })[];
   };
 }
 export interface GetRfidRequest {
@@ -249,10 +321,6 @@ export interface GetRfidResponse {
    */
   body: {
     /**
-     * 设备号 deviceNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -263,7 +331,7 @@ export interface GetRfidResponse {
       /**
        * 天线编号
        */
-      no?: number;
+      no: number;
       /**
        * 横坐标
        */
@@ -291,6 +359,37 @@ export interface GetRfidResponse {
      * 心跳时间
      */
     heartbeatAt?: Date;
+    /**
+     * RFID 设备号
+     */
+    no: string;
+    /**
+     * 天线
+     */
+    ants?: ({
+      /**
+       * 横坐标
+       */
+      x?: number;
+      /**
+       * 纵坐标
+       */
+      y?: number;
+    } & {
+      /**
+       * mongodb id
+       */
+      id: string;
+      updateAt?: Date;
+      updateBy?: string;
+      createAt?: Date;
+      createBy?: string;
+    } & {
+      /**
+       * 天线编号
+       */
+      no: number;
+    })[];
   };
 }
 export interface UpdateRfidRequest {
@@ -299,10 +398,6 @@ export interface UpdateRfidRequest {
    * Rfid device Doc
    */
   body: {
-    /**
-     * 设备号 deviceNo
-     */
-    no: string;
     /**
      * 设备类型
      */
@@ -314,7 +409,7 @@ export interface UpdateRfidRequest {
       /**
        * 天线编号
        */
-      no?: number;
+      no: number;
       /**
        * 横坐标
        */
@@ -336,10 +431,6 @@ export interface UpdateRfidResponse {
    */
   body: {
     /**
-     * 设备号 deviceNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -350,7 +441,7 @@ export interface UpdateRfidResponse {
       /**
        * 天线编号
        */
-      no?: number;
+      no: number;
       /**
        * 横坐标
        */
@@ -378,6 +469,37 @@ export interface UpdateRfidResponse {
      * 心跳时间
      */
     heartbeatAt?: Date;
+    /**
+     * RFID 设备号
+     */
+    no: string;
+    /**
+     * 天线
+     */
+    ants?: ({
+      /**
+       * 横坐标
+       */
+      x?: number;
+      /**
+       * 纵坐标
+       */
+      y?: number;
+    } & {
+      /**
+       * mongodb id
+       */
+      id: string;
+      updateAt?: Date;
+      updateBy?: string;
+      createAt?: Date;
+      createBy?: string;
+    } & {
+      /**
+       * 天线编号
+       */
+      no: number;
+    })[];
   };
 }
 export interface DeleteRfidRequest {
@@ -396,11 +518,11 @@ export interface CreateAntRequest {
     /**
      * 横坐标
      */
-    x: number;
+    x?: number;
     /**
      * 纵坐标
      */
-    y: number;
+    y?: number;
   };
 }
 export interface CreateAntResponse {
@@ -408,10 +530,6 @@ export interface CreateAntResponse {
    * 天线
    */
   body: {
-    /**
-     * 天线编号
-     */
-    no?: number;
     /**
      * 横坐标
      */
@@ -429,6 +547,11 @@ export interface CreateAntResponse {
     updateBy?: string;
     createAt?: Date;
     createBy?: string;
+  } & {
+    /**
+     * 天线编号
+     */
+    no: number;
   };
 }
 export interface GetRAntRequest {
@@ -441,10 +564,6 @@ export interface GetRAntResponse {
    */
   body: {
     /**
-     * 天线编号
-     */
-    no?: number;
-    /**
      * 横坐标
      */
     x?: number;
@@ -461,6 +580,11 @@ export interface GetRAntResponse {
     updateBy?: string;
     createAt?: Date;
     createBy?: string;
+  } & {
+    /**
+     * 天线编号
+     */
+    no: number;
   };
 }
 export interface UpdateAntRequest {
@@ -470,10 +594,6 @@ export interface UpdateAntRequest {
    * 天线
    */
   body: {
-    /**
-     * 天线编号
-     */
-    no?: number;
     /**
      * 横坐标
      */
@@ -490,10 +610,6 @@ export interface UpdateAntResponse {
    */
   body: {
     /**
-     * 天线编号
-     */
-    no?: number;
-    /**
      * 横坐标
      */
     x?: number;
@@ -510,6 +626,11 @@ export interface UpdateAntResponse {
     updateBy?: string;
     createAt?: Date;
     createBy?: string;
+  } & {
+    /**
+     * 天线编号
+     */
+    no: number;
   };
 }
 export interface DeleteAntRequest {
@@ -527,10 +648,6 @@ export interface ListCamerasRequest {
 export interface ListCamerasResponse {
   body: ({
     /**
-     * 摄像头设备号 cameraNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -564,6 +681,11 @@ export interface ListCamerasResponse {
     updateBy?: string;
     createAt?: Date;
     createBy?: string;
+  } & {
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    no: string;
   })[];
   headers: {
     "x-total-count"?: number;
@@ -575,10 +697,6 @@ export interface CreateCameraRequest {
    */
   body: {
     /**
-     * 摄像头设备号 cameraNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -603,6 +721,11 @@ export interface CreateCameraRequest {
        */
       ant: number;
     };
+  } & {
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    no: string;
   };
 }
 export interface CreateCameraResponse {
@@ -610,10 +733,6 @@ export interface CreateCameraResponse {
    * Camera摄像头
    */
   body: {
-    /**
-     * 摄像头设备号 cameraNo
-     */
-    no: string;
     /**
      * 设备类型
      */
@@ -648,6 +767,11 @@ export interface CreateCameraResponse {
     updateBy?: string;
     createAt?: Date;
     createBy?: string;
+  } & {
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    no: string;
   };
 }
 export interface GetCameraRequest {
@@ -659,10 +783,6 @@ export interface GetCameraResponse {
    */
   body: {
     /**
-     * 摄像头设备号 cameraNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -696,6 +816,11 @@ export interface GetCameraResponse {
     updateBy?: string;
     createAt?: Date;
     createBy?: string;
+  } & {
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    no: string;
   };
 }
 export interface UpdateCameraRequest {
@@ -704,10 +829,6 @@ export interface UpdateCameraRequest {
    * Camera Doc
    */
   body: {
-    /**
-     * 摄像头设备号 cameraNo
-     */
-    no: string;
     /**
      * 设备类型
      */
@@ -741,10 +862,6 @@ export interface UpdateCameraResponse {
    */
   body: {
     /**
-     * 摄像头设备号 cameraNo
-     */
-    no: string;
-    /**
      * 设备类型
      */
     type?: string;
@@ -778,6 +895,11 @@ export interface UpdateCameraResponse {
     updateBy?: string;
     createAt?: Date;
     createBy?: string;
+  } & {
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    no: string;
   };
 }
 export interface DeleteCameraRequest {
@@ -790,11 +912,7 @@ export interface ListDoorsRequest {
   };
 }
 export interface ListDoorsResponse {
-  body: {
-    /**
-     * 设备id
-     */
-    indexCode: string;
+  body: ({
     /**
      * 通道类型
      */
@@ -811,7 +929,12 @@ export interface ListDoorsResponse {
      * 所属区域
      */
     regionName?: string;
-  }[];
+  } & {
+    /**
+     * 设备id
+     */
+    indexCode: string;
+  })[];
   headers: {
     "x-total-count"?: number;
   };
@@ -848,15 +971,15 @@ export interface ListTargetsResponse {
     /**
      * 横坐标
      */
-    x: number;
+    x?: number;
     /**
      * 纵坐标
      */
-    y: number;
+    y?: number;
     /**
      * 探测设备
      */
-    from: "Rfid" | "Camera";
+    from?: "Rfid" | "Camera";
     /**
      * 摄像头设备号 cameraNo
      */
@@ -872,7 +995,7 @@ export interface ListTargetsResponse {
     /**
      * 坐标探测时间
      */
-    locateAt: Date;
+    locateAt?: Date;
   } & {
     /**
      * mongodb id
@@ -904,15 +1027,15 @@ export interface PostEventRequest {
     /**
      * 事件类型
      */
-    EventType: number;
+    EventType?: number;
     /**
      * 设备编号
      */
-    DeviceNo: number;
+    DeviceNo?: number;
     /**
      * 预警时间(yyyy-mm-dd hh24:mi:ss)
      */
-    DateTime: string;
+    DateTime?: string;
     /**
      * 人脸目标id
      */
@@ -947,10 +1070,6 @@ export type SourceType = "Rfid" | "Camera";
  */
 export interface AntDoc {
   /**
-   * 天线编号
-   */
-  no?: number;
-  /**
    * 横坐标
    */
   x?: number;
@@ -971,21 +1090,17 @@ export interface AntCreateDoc {
   /**
    * 横坐标
    */
-  x: number;
+  x?: number;
   /**
    * 纵坐标
    */
-  y: number;
+  y?: number;
 }
 
 /**
  * 天线
  */
 export type Ant = {
-  /**
-   * 天线编号
-   */
-  no?: number;
   /**
    * 横坐标
    */
@@ -1003,16 +1118,17 @@ export type Ant = {
   updateBy?: string;
   createAt?: Date;
   createBy?: string;
+} & {
+  /**
+   * 天线编号
+   */
+  no: number;
 };
 
 /**
  * Rfid device Doc
  */
 export interface RfidDoc {
-  /**
-   * 设备号 deviceNo
-   */
-  no: string;
   /**
    * 设备类型
    */
@@ -1024,7 +1140,7 @@ export interface RfidDoc {
     /**
      * 天线编号
      */
-    no?: number;
+    no: number;
     /**
      * 横坐标
      */
@@ -1045,10 +1161,6 @@ export interface RfidDoc {
  */
 export type RfidCreateDoc = {
   /**
-   * 设备号 deviceNo
-   */
-  no: string;
-  /**
    * 设备类型
    */
   type?: string;
@@ -1059,7 +1171,7 @@ export type RfidCreateDoc = {
     /**
      * 天线编号
      */
-    no?: number;
+    no: number;
     /**
      * 横坐标
      */
@@ -1073,16 +1185,34 @@ export type RfidCreateDoc = {
    * 设备工作状态
    */
   state?: "ON" | "OFF";
+} & {
+  /**
+   * RFID 设备号
+   */
+  no: string;
+  /**
+   * 天线
+   */
+  ants?: {
+    /**
+     * 天线编号
+     */
+    no: number;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+  }[];
 };
 
 /**
  * Rfid device
  */
 export type Rfid = {
-  /**
-   * 设备号 deviceNo
-   */
-  no: string;
   /**
    * 设备类型
    */
@@ -1094,7 +1224,7 @@ export type Rfid = {
     /**
      * 天线编号
      */
-    no?: number;
+    no: number;
     /**
      * 横坐标
      */
@@ -1122,16 +1252,43 @@ export type Rfid = {
    * 心跳时间
    */
   heartbeatAt?: Date;
+  /**
+   * RFID 设备号
+   */
+  no: string;
+  /**
+   * 天线
+   */
+  ants?: ({
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+  } & {
+    /**
+     * mongodb id
+     */
+    id: string;
+    updateAt?: Date;
+    updateBy?: string;
+    createAt?: Date;
+    createBy?: string;
+  } & {
+    /**
+     * 天线编号
+     */
+    no: number;
+  })[];
 };
 
 /**
  * Camera Doc
  */
 export interface CameraDoc {
-  /**
-   * 摄像头设备号 cameraNo
-   */
-  no: string;
   /**
    * 设备类型
    */
@@ -1164,10 +1321,6 @@ export interface CameraDoc {
  */
 export type CameraCreateDoc = {
   /**
-   * 摄像头设备号 cameraNo
-   */
-  no: string;
-  /**
    * 设备类型
    */
   type?: string;
@@ -1192,16 +1345,17 @@ export type CameraCreateDoc = {
      */
     ant: number;
   };
+} & {
+  /**
+   * 摄像头设备号 cameraNo
+   */
+  no: string;
 };
 
 /**
  * Camera摄像头
  */
 export type Camera = {
-  /**
-   * 摄像头设备号 cameraNo
-   */
-  no: string;
   /**
    * 设备类型
    */
@@ -1236,16 +1390,17 @@ export type Camera = {
   updateBy?: string;
   createAt?: Date;
   createBy?: string;
+} & {
+  /**
+   * 摄像头设备号 cameraNo
+   */
+  no: string;
 };
 
 /**
  * Door Doc
  */
 export interface DoorDoc {
-  /**
-   * 设备id
-   */
-  indexCode: string;
   /**
    * 通道类型
    */
@@ -1269,10 +1424,6 @@ export interface DoorDoc {
  */
 export type DoorCreateDoc = {
   /**
-   * 设备id
-   */
-  indexCode: string;
-  /**
    * 通道类型
    */
   channelType?: string;
@@ -1288,6 +1439,11 @@ export type DoorCreateDoc = {
    * 所属区域
    */
   regionName?: string;
+} & {
+  /**
+   * 设备id
+   */
+  indexCode: string;
 };
 
 /**
@@ -1295,10 +1451,6 @@ export type DoorCreateDoc = {
  */
 export type Door = {
   /**
-   * 设备id
-   */
-  indexCode: string;
-  /**
    * 通道类型
    */
   channelType?: string;
@@ -1314,6 +1466,11 @@ export type Door = {
    * 所属区域
    */
   regionName?: string;
+} & {
+  /**
+   * 设备id
+   */
+  indexCode: string;
 };
 
 /**
@@ -1339,15 +1496,15 @@ export interface TargetDoc {
   /**
    * 横坐标
    */
-  x: number;
+  x?: number;
   /**
    * 纵坐标
    */
-  y: number;
+  y?: number;
   /**
    * 探测设备
    */
-  from: "Rfid" | "Camera";
+  from?: "Rfid" | "Camera";
   /**
    * 摄像头设备号 cameraNo
    */
@@ -1363,7 +1520,7 @@ export interface TargetDoc {
   /**
    * 坐标探测时间
    */
-  locateAt: Date;
+  locateAt?: Date;
 }
 
 /**
@@ -1389,15 +1546,15 @@ export type Target = {
   /**
    * 横坐标
    */
-  x: number;
+  x?: number;
   /**
    * 纵坐标
    */
-  y: number;
+  y?: number;
   /**
    * 探测设备
    */
-  from: "Rfid" | "Camera";
+  from?: "Rfid" | "Camera";
   /**
    * 摄像头设备号 cameraNo
    */
@@ -1413,7 +1570,7 @@ export type Target = {
   /**
    * 坐标探测时间
    */
-  locateAt: Date;
+  locateAt?: Date;
 } & {
   /**
    * mongodb id
@@ -1441,15 +1598,15 @@ export interface AicsEventDoc {
   /**
    * 事件类型
    */
-  EventType: number;
+  EventType?: number;
   /**
    * 设备编号
    */
-  DeviceNo: number;
+  DeviceNo?: number;
   /**
    * 预警时间(yyyy-mm-dd hh24:mi:ss)
    */
-  DateTime: string;
+  DateTime?: string;
   /**
    * 人脸目标id
    */
