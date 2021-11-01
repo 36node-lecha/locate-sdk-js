@@ -541,6 +541,7 @@ export interface ListCamerasRequest {
     _offset?: number;
     _sort?: string;
     _select?: string[];
+    type?: string;
   };
 }
 export interface ListCamerasResponse {
@@ -548,7 +549,15 @@ export interface ListCamerasResponse {
     /**
      * 设备类型
      */
-    type?: string;
+    type?: "FACE" | "NORMAL";
+    /**
+     * 海康摄像机的 indexCode
+     */
+    indexCode?: string;
+    /**
+     * 相机的名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -597,7 +606,15 @@ export interface CreateCameraRequest {
     /**
      * 设备类型
      */
-    type?: string;
+    type?: "FACE" | "NORMAL";
+    /**
+     * 海康摄像机的 indexCode
+     */
+    indexCode?: string;
+    /**
+     * 相机的名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -634,7 +651,15 @@ export interface CreateCameraResponse {
     /**
      * 设备类型
      */
-    type?: string;
+    type?: "FACE" | "NORMAL";
+    /**
+     * 海康摄像机的 indexCode
+     */
+    indexCode?: string;
+    /**
+     * 相机的名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -683,7 +708,15 @@ export interface GetCameraResponse {
     /**
      * 设备类型
      */
-    type?: string;
+    type?: "FACE" | "NORMAL";
+    /**
+     * 海康摄像机的 indexCode
+     */
+    indexCode?: string;
+    /**
+     * 相机的名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -730,7 +763,15 @@ export interface UpdateCameraRequest {
     /**
      * 设备类型
      */
-    type?: string;
+    type?: "FACE" | "NORMAL";
+    /**
+     * 海康摄像机的 indexCode
+     */
+    indexCode?: string;
+    /**
+     * 相机的名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -762,7 +803,15 @@ export interface UpdateCameraResponse {
     /**
      * 设备类型
      */
-    type?: string;
+    type?: "FACE" | "NORMAL";
+    /**
+     * 海康摄像机的 indexCode
+     */
+    indexCode?: string;
+    /**
+     * 相机的名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -1139,7 +1188,15 @@ export interface CameraDoc {
   /**
    * 设备类型
    */
-  type?: string;
+  type?: "FACE" | "NORMAL";
+  /**
+   * 海康摄像机的 indexCode
+   */
+  indexCode?: string;
+  /**
+   * 相机的名称
+   */
+  name?: string;
   /**
    * 横坐标
    */
@@ -1170,7 +1227,15 @@ export type CameraCreateDoc = {
   /**
    * 设备类型
    */
-  type?: string;
+  type?: "FACE" | "NORMAL";
+  /**
+   * 海康摄像机的 indexCode
+   */
+  indexCode?: string;
+  /**
+   * 相机的名称
+   */
+  name?: string;
   /**
    * 横坐标
    */
@@ -1206,7 +1271,15 @@ export type Camera = {
   /**
    * 设备类型
    */
-  type?: string;
+  type?: "FACE" | "NORMAL";
+  /**
+   * 海康摄像机的 indexCode
+   */
+  indexCode?: string;
+  /**
+   * 相机的名称
+   */
+  name?: string;
   /**
    * 横坐标
    */
