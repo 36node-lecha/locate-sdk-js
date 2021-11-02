@@ -551,10 +551,6 @@ export interface ListCamerasResponse {
      */
     type?: "FACE" | "NORMAL";
     /**
-     * 海康摄像机的 indexCode
-     */
-    indexCode?: string;
-    /**
      * 相机的名称
      */
     name?: string;
@@ -608,10 +604,6 @@ export interface CreateCameraRequest {
      */
     type?: "FACE" | "NORMAL";
     /**
-     * 海康摄像机的 indexCode
-     */
-    indexCode?: string;
-    /**
      * 相机的名称
      */
     name?: string;
@@ -652,10 +644,6 @@ export interface CreateCameraResponse {
      * 设备类型
      */
     type?: "FACE" | "NORMAL";
-    /**
-     * 海康摄像机的 indexCode
-     */
-    indexCode?: string;
     /**
      * 相机的名称
      */
@@ -710,10 +698,6 @@ export interface GetCameraResponse {
      */
     type?: "FACE" | "NORMAL";
     /**
-     * 海康摄像机的 indexCode
-     */
-    indexCode?: string;
-    /**
      * 相机的名称
      */
     name?: string;
@@ -765,10 +749,6 @@ export interface UpdateCameraRequest {
      */
     type?: "FACE" | "NORMAL";
     /**
-     * 海康摄像机的 indexCode
-     */
-    indexCode?: string;
-    /**
      * 相机的名称
      */
     name?: string;
@@ -804,10 +784,6 @@ export interface UpdateCameraResponse {
      * 设备类型
      */
     type?: "FACE" | "NORMAL";
-    /**
-     * 海康摄像机的 indexCode
-     */
-    indexCode?: string;
     /**
      * 相机的名称
      */
@@ -1190,10 +1166,6 @@ export interface CameraDoc {
    */
   type?: "FACE" | "NORMAL";
   /**
-   * 海康摄像机的 indexCode
-   */
-  indexCode?: string;
-  /**
    * 相机的名称
    */
   name?: string;
@@ -1228,10 +1200,6 @@ export type CameraCreateDoc = {
    * 设备类型
    */
   type?: "FACE" | "NORMAL";
-  /**
-   * 海康摄像机的 indexCode
-   */
-  indexCode?: string;
   /**
    * 相机的名称
    */
@@ -1272,10 +1240,6 @@ export type Camera = {
    * 设备类型
    */
   type?: "FACE" | "NORMAL";
-  /**
-   * 海康摄像机的 indexCode
-   */
-  indexCode?: string;
   /**
    * 相机的名称
    */
