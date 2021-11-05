@@ -884,9 +884,13 @@ export interface ListTargetsResponse {
      */
     person?: string;
     /**
+     * 人员姓名
+     */
+    personName?: string;
+    /**
      * 人员类型
      */
-    personType?: "Staff" | "Visitor";
+    personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
     /**
      * 人脸目标ID
      */
@@ -919,6 +923,14 @@ export interface ListTargetsResponse {
      * 坐标探测时间
      */
     locateAt?: Date;
+    /**
+     * 性别
+     */
+    gender?: string;
+    /**
+     * 工号
+     */
+    worknumber?: string;
   } & {
     /**
      * mongodb id
@@ -967,6 +979,22 @@ export interface PostEventRequest {
      * 人脸模版ID、临时ID
      */
     FaceFTNo?: number;
+    /**
+     * 人员姓名
+     */
+    FaceName?: string;
+    /**
+     * 警号
+     */
+    Para1?: string;
+    /**
+     * 性别 0 女，1 男 2 未知
+     */
+    Para2?: string;
+    /**
+     * 0 嫌疑人 1 警察 2 其他
+     */
+    Para3?: string;
   };
 }
 export type DateTime = Date;
@@ -984,7 +1012,7 @@ export type RfidState = "ON" | "OFF";
 
 export type Coordinate = number;
 
-export type PersonType = "Staff" | "Visitor";
+export type PersonType = "POLICE" | "VISITOR" | "SUSPECTOR";
 
 export type SourceType = "Rfid" | "Camera";
 
@@ -1370,9 +1398,13 @@ export interface TargetDoc {
    */
   person?: string;
   /**
+   * 人员姓名
+   */
+  personName?: string;
+  /**
    * 人员类型
    */
-  personType?: "Staff" | "Visitor";
+  personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
   /**
    * 人脸目标ID
    */
@@ -1405,6 +1437,14 @@ export interface TargetDoc {
    * 坐标探测时间
    */
   locateAt?: Date;
+  /**
+   * 性别
+   */
+  gender?: string;
+  /**
+   * 工号
+   */
+  worknumber?: string;
 }
 
 /**
@@ -1420,9 +1460,13 @@ export type Target = {
    */
   person?: string;
   /**
+   * 人员姓名
+   */
+  personName?: string;
+  /**
    * 人员类型
    */
-  personType?: "Staff" | "Visitor";
+  personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
   /**
    * 人脸目标ID
    */
@@ -1455,6 +1499,14 @@ export type Target = {
    * 坐标探测时间
    */
   locateAt?: Date;
+  /**
+   * 性别
+   */
+  gender?: string;
+  /**
+   * 工号
+   */
+  worknumber?: string;
 } & {
   /**
    * mongodb id
@@ -1499,6 +1551,22 @@ export interface AicsEventDoc {
    * 人脸模版ID、临时ID
    */
   FaceFTNo?: number;
+  /**
+   * 人员姓名
+   */
+  FaceName?: string;
+  /**
+   * 警号
+   */
+  Para1?: string;
+  /**
+   * 性别 0 女，1 男 2 未知
+   */
+  Para2?: string;
+  /**
+   * 0 嫌疑人 1 警察 2 其他
+   */
+  Para3?: string;
 }
 
 export interface MongoDefault {
