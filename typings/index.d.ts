@@ -871,6 +871,8 @@ export interface ListTargetsRequest {
     from?: string[];
     label?: string[];
     person?: string[];
+    locateAt_gt?: string;
+    locateAt_lt?: string;
   };
 }
 export interface ListTargetsResponse {
@@ -972,6 +974,10 @@ export interface PostEventRequest {
      */
     DateTime?: string;
     /**
+     * 人脸比对类型 当取值为 25 时，代表疑似
+     */
+    FaceCompType?: number;
+    /**
      * 人脸目标id
      */
     FaceObjectID?: number;
@@ -992,7 +998,7 @@ export interface PostEventRequest {
      */
     Para2?: string;
     /**
-     * 0 嫌疑人 1 警察 2 其他
+     * 0 不是嫌疑人 1 是嫌疑人
      */
     Para3?: string;
   };
@@ -1544,6 +1550,10 @@ export interface AicsEventDoc {
    */
   DateTime?: string;
   /**
+   * 人脸比对类型 当取值为 25 时，代表疑似
+   */
+  FaceCompType?: number;
+  /**
    * 人脸目标id
    */
   FaceObjectID?: number;
@@ -1564,7 +1574,7 @@ export interface AicsEventDoc {
    */
   Para2?: string;
   /**
-   * 0 嫌疑人 1 警察 2 其他
+   * 0 不是嫌疑人 1 是嫌疑人
    */
   Para3?: string;
 }
