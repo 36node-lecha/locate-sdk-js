@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/36node/locate-sdk-js/compare/v0.0.8...v0.1.0) (2022-04-10)
+
+
+### Bug Fixes
+
+* add query locateAt for list targets ([d33712e](https://github.com/36node/locate-sdk-js/commit/d33712e19087f59a414f8cfb7357498c9699e994))
+
 ### [0.0.8](https://github.com/36node/locate-sdk-js/compare/v0.0.7...v0.0.8) (2021-11-05)
 
 
