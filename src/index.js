@@ -317,6 +317,39 @@ export default class SDK {
         headers: { Authorization: this.auth },
       });
     },
+    /**
+     * List target history records
+     *
+     * @param {ListTargetRecordsRequest} req listTargetRecords request
+     * @returns {Promise<ListTargetRecordsResponse>} A paged array of rfid devices
+     */
+    listTargetRecords: req => {
+      const { query } = req || {};
+
+      return fetch(`${this.base}/target/records`, {
+        method: "GET",
+        query,
+        headers: { Authorization: this.auth },
+      });
+    },
+    /**
+     * Create a target record
+     *
+     * @param {CreateTargetRecordRequest} req createTargetRecord request
+     * @returns {Promise<CreateTargetRecordResponse>} The target record created
+     */
+    createTargetRecord: req => {
+      const { body } = req || {};
+
+      if (!body)
+        throw new Error("requetBody is required for createTargetRecord");
+
+      return fetch(`${this.base}/target/records`, {
+        method: "POST",
+        body,
+        headers: { Authorization: this.auth },
+      });
+    },
   };
   /**
    * aics's methods

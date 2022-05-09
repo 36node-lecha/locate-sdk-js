@@ -88,6 +88,14 @@ export interface TargetAPI {
    * List targets
    */
   listTargets(req: ListTargetsRequest): Promise<ListTargetsResponse>;
+  /**
+   * List target history records
+   */
+  listTargetRecords(req: ListTargetRecordsRequest): Promise<ListTargetRecordsResponse>;
+  /**
+   * Create a target record
+   */
+  createTargetRecord(req: CreateTargetRecordRequest): Promise<CreateTargetRecordResponse>;
 }
 export interface AicsAPI {
   /**
@@ -110,6 +118,10 @@ export interface ListRfidsResponse {
      * 设备类型
      */
     type?: string;
+    /**
+     * 设备名称
+     */
+    name?: string;
     /**
      * 设备工作状态
      */
@@ -136,6 +148,10 @@ export interface ListRfidsResponse {
      * 天线
      */
     ants?: ({
+      /**
+       * 天线名称
+       */
+      name?: string;
       /**
        * 横坐标
        */
@@ -174,6 +190,10 @@ export interface CreateRfidRequest {
      */
     type?: string;
     /**
+     * 设备名称
+     */
+    name?: string;
+    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -211,6 +231,10 @@ export interface CreateRfidResponse {
      */
     type?: string;
     /**
+     * 设备名称
+     */
+    name?: string;
+    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -236,6 +260,10 @@ export interface CreateRfidResponse {
      * 天线
      */
     ants?: ({
+      /**
+       * 天线名称
+       */
+      name?: string;
       /**
        * 横坐标
        */
@@ -274,6 +302,10 @@ export interface GetRfidResponse {
      */
     type?: string;
     /**
+     * 设备名称
+     */
+    name?: string;
+    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -299,6 +331,10 @@ export interface GetRfidResponse {
      * 天线
      */
     ants?: ({
+      /**
+       * 天线名称
+       */
+      name?: string;
       /**
        * 横坐标
        */
@@ -335,6 +371,10 @@ export interface UpdateRfidRequest {
      */
     type?: string;
     /**
+     * 设备名称
+     */
+    name?: string;
+    /**
      * 设备工作状态
      */
     state?: "ON" | "OFF";
@@ -349,6 +389,10 @@ export interface UpdateRfidResponse {
      * 设备类型
      */
     type?: string;
+    /**
+     * 设备名称
+     */
+    name?: string;
     /**
      * 设备工作状态
      */
@@ -375,6 +419,10 @@ export interface UpdateRfidResponse {
      * 天线
      */
     ants?: ({
+      /**
+       * 天线名称
+       */
+      name?: string;
       /**
        * 横坐标
        */
@@ -429,6 +477,10 @@ export interface CreateAntResponse {
    */
   body: {
     /**
+     * 天线名称
+     */
+    name?: string;
+    /**
      * 横坐标
      */
     x?: number;
@@ -462,6 +514,10 @@ export interface GetAntResponse {
    */
   body: {
     /**
+     * 天线名称
+     */
+    name?: string;
+    /**
      * 横坐标
      */
     x?: number;
@@ -493,6 +549,10 @@ export interface UpdateAntRequest {
    */
   body: {
     /**
+     * 天线名称
+     */
+    name?: string;
+    /**
      * 横坐标
      */
     x?: number;
@@ -507,6 +567,10 @@ export interface UpdateAntResponse {
    * 天线
    */
   body: {
+    /**
+     * 天线名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -882,6 +946,10 @@ export interface ListTargetsResponse {
      */
     label?: string;
     /**
+     * 位置名称
+     */
+    place?: string;
+    /**
      * 人员id
      */
     person?: string;
@@ -950,6 +1018,247 @@ export interface ListTargetsResponse {
   })[];
   headers: {
     "x-total-count"?: number;
+  };
+}
+export interface ListTargetRecordsRequest {
+  query?: {
+    _limit?: number;
+    _offset?: number;
+    _sort?: string;
+    _select?: string[];
+    label?: string[];
+    person?: string[];
+    locateAt_gt?: string;
+    locateAt_lt?: string;
+  };
+}
+export interface ListTargetRecordsResponse {
+  body: ({
+    /**
+     * 标签id
+     */
+    label?: string;
+    /**
+     * 位置名称
+     */
+    place?: string;
+    /**
+     * 人员id
+     */
+    person?: string;
+    /**
+     * 人员姓名
+     */
+    personName?: string;
+    /**
+     * 人员类型
+     */
+    personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
+    /**
+     * 人脸目标ID
+     */
+    faceObjectId?: string;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+    /**
+     * 探测设备
+     */
+    from?: "Rfid" | "Camera";
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    camera?: string;
+    /**
+     * rfid设备号 deviceNo
+     */
+    device?: string;
+    /**
+     * 天线设备号 antNo
+     */
+    ant?: number;
+    /**
+     * 坐标探测时间
+     */
+    locateAt?: Date;
+    /**
+     * 性别
+     */
+    gender?: string;
+    /**
+     * 工号
+     */
+    worknumber?: string;
+  } & {
+    /**
+     * mongodb id
+     */
+    id: string;
+    updateAt?: Date;
+    updateBy?: string;
+    createAt?: Date;
+    createBy?: string;
+  } & {
+    /**
+     * 坐标过期时间
+     */
+    expireAt?: Date;
+  })[];
+  headers: {
+    "x-total-count"?: number;
+  };
+}
+export interface CreateTargetRecordRequest {
+  /**
+   * Target Record Doc
+   */
+  body: {
+    /**
+     * 标签id
+     */
+    label?: string;
+    /**
+     * 位置名称
+     */
+    place?: string;
+    /**
+     * 人员id
+     */
+    person?: string;
+    /**
+     * 人员姓名
+     */
+    personName?: string;
+    /**
+     * 人员类型
+     */
+    personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
+    /**
+     * 人脸目标ID
+     */
+    faceObjectId?: string;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+    /**
+     * 探测设备
+     */
+    from?: "Rfid" | "Camera";
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    camera?: string;
+    /**
+     * rfid设备号 deviceNo
+     */
+    device?: string;
+    /**
+     * 天线设备号 antNo
+     */
+    ant?: number;
+    /**
+     * 坐标探测时间
+     */
+    locateAt?: Date;
+    /**
+     * 性别
+     */
+    gender?: string;
+    /**
+     * 工号
+     */
+    worknumber?: string;
+  };
+}
+export interface CreateTargetRecordResponse {
+  /**
+   * 历史记录
+   */
+  body: {
+    /**
+     * 标签id
+     */
+    label?: string;
+    /**
+     * 位置名称
+     */
+    place?: string;
+    /**
+     * 人员id
+     */
+    person?: string;
+    /**
+     * 人员姓名
+     */
+    personName?: string;
+    /**
+     * 人员类型
+     */
+    personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
+    /**
+     * 人脸目标ID
+     */
+    faceObjectId?: string;
+    /**
+     * 横坐标
+     */
+    x?: number;
+    /**
+     * 纵坐标
+     */
+    y?: number;
+    /**
+     * 探测设备
+     */
+    from?: "Rfid" | "Camera";
+    /**
+     * 摄像头设备号 cameraNo
+     */
+    camera?: string;
+    /**
+     * rfid设备号 deviceNo
+     */
+    device?: string;
+    /**
+     * 天线设备号 antNo
+     */
+    ant?: number;
+    /**
+     * 坐标探测时间
+     */
+    locateAt?: Date;
+    /**
+     * 性别
+     */
+    gender?: string;
+    /**
+     * 工号
+     */
+    worknumber?: string;
+  } & {
+    /**
+     * mongodb id
+     */
+    id: string;
+    updateAt?: Date;
+    updateBy?: string;
+    createAt?: Date;
+    createBy?: string;
+  } & {
+    /**
+     * 坐标过期时间
+     */
+    expireAt?: Date;
   };
 }
 export interface PostEventRequest {
@@ -1027,6 +1336,10 @@ export type SourceType = "Rfid" | "Camera";
  */
 export interface AntDoc {
   /**
+   * 天线名称
+   */
+  name?: string;
+  /**
    * 横坐标
    */
   x?: number;
@@ -1058,6 +1371,10 @@ export interface AntCreateDoc {
  * 天线
  */
 export type Ant = {
+  /**
+   * 天线名称
+   */
+  name?: string;
   /**
    * 横坐标
    */
@@ -1091,6 +1408,10 @@ export interface RfidDoc {
    */
   type?: string;
   /**
+   * 设备名称
+   */
+  name?: string;
+  /**
    * 设备工作状态
    */
   state?: "ON" | "OFF";
@@ -1104,6 +1425,10 @@ export type RfidCreateDoc = {
    * 设备类型
    */
   type?: string;
+  /**
+   * 设备名称
+   */
+  name?: string;
   /**
    * 设备工作状态
    */
@@ -1141,6 +1466,10 @@ export type Rfid = {
    */
   type?: string;
   /**
+   * 设备名称
+   */
+  name?: string;
+  /**
    * 设备工作状态
    */
   state?: "ON" | "OFF";
@@ -1166,6 +1495,10 @@ export type Rfid = {
    * 天线
    */
   ants?: ({
+    /**
+     * 天线名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -1400,6 +1733,10 @@ export interface TargetDoc {
    */
   label?: string;
   /**
+   * 位置名称
+   */
+  place?: string;
+  /**
    * 人员id
    */
   person?: string;
@@ -1461,6 +1798,156 @@ export type Target = {
    * 标签id
    */
   label?: string;
+  /**
+   * 位置名称
+   */
+  place?: string;
+  /**
+   * 人员id
+   */
+  person?: string;
+  /**
+   * 人员姓名
+   */
+  personName?: string;
+  /**
+   * 人员类型
+   */
+  personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
+  /**
+   * 人脸目标ID
+   */
+  faceObjectId?: string;
+  /**
+   * 横坐标
+   */
+  x?: number;
+  /**
+   * 纵坐标
+   */
+  y?: number;
+  /**
+   * 探测设备
+   */
+  from?: "Rfid" | "Camera";
+  /**
+   * 摄像头设备号 cameraNo
+   */
+  camera?: string;
+  /**
+   * rfid设备号 deviceNo
+   */
+  device?: string;
+  /**
+   * 天线设备号 antNo
+   */
+  ant?: number;
+  /**
+   * 坐标探测时间
+   */
+  locateAt?: Date;
+  /**
+   * 性别
+   */
+  gender?: string;
+  /**
+   * 工号
+   */
+  worknumber?: string;
+} & {
+  /**
+   * mongodb id
+   */
+  id: string;
+  updateAt?: Date;
+  updateBy?: string;
+  createAt?: Date;
+  createBy?: string;
+} & {
+  /**
+   * 坐标过期时间
+   */
+  expireAt?: Date;
+};
+
+/**
+ * Target Record Doc
+ */
+export interface TargetRecordDoc {
+  /**
+   * 标签id
+   */
+  label?: string;
+  /**
+   * 位置名称
+   */
+  place?: string;
+  /**
+   * 人员id
+   */
+  person?: string;
+  /**
+   * 人员姓名
+   */
+  personName?: string;
+  /**
+   * 人员类型
+   */
+  personType?: "POLICE" | "VISITOR" | "SUSPECTOR";
+  /**
+   * 人脸目标ID
+   */
+  faceObjectId?: string;
+  /**
+   * 横坐标
+   */
+  x?: number;
+  /**
+   * 纵坐标
+   */
+  y?: number;
+  /**
+   * 探测设备
+   */
+  from?: "Rfid" | "Camera";
+  /**
+   * 摄像头设备号 cameraNo
+   */
+  camera?: string;
+  /**
+   * rfid设备号 deviceNo
+   */
+  device?: string;
+  /**
+   * 天线设备号 antNo
+   */
+  ant?: number;
+  /**
+   * 坐标探测时间
+   */
+  locateAt?: Date;
+  /**
+   * 性别
+   */
+  gender?: string;
+  /**
+   * 工号
+   */
+  worknumber?: string;
+}
+
+/**
+ * 历史记录
+ */
+export type TargetRecord = {
+  /**
+   * 标签id
+   */
+  label?: string;
+  /**
+   * 位置名称
+   */
+  place?: string;
   /**
    * 人员id
    */
