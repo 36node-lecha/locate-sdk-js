@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/36node/locate-sdk-js/compare/v0.1.0...v0.1.1) (2022-05-09)
+
+
+### Features
+
+* target records query by person ([c4f7f15](https://github.com/36node/locate-sdk-js/commit/c4f7f159de917e82d73bc394a8725f2a207c9115))
+
 ## [0.1.0](https://github.com/36node/locate-sdk-js/compare/v0.0.8...v0.1.0) (2022-04-10)
 
 
