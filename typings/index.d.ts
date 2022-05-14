@@ -211,6 +211,10 @@ export interface CreateRfidRequest {
        */
       no: number;
       /**
+       * 天线名称
+       */
+      name?: string;
+      /**
        * 横坐标
        */
       x?: number;
@@ -461,6 +465,10 @@ export interface CreateAntRequest {
      * 天线编号
      */
     no: number;
+    /**
+     * 天线名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
@@ -1358,6 +1366,10 @@ export interface AntCreateDoc {
    */
   no: number;
   /**
+   * 天线名称
+   */
+  name?: string;
+  /**
    * 横坐标
    */
   x?: number;
@@ -1446,6 +1458,10 @@ export type RfidCreateDoc = {
      * 天线编号
      */
     no: number;
+    /**
+     * 天线名称
+     */
+    name?: string;
     /**
      * 横坐标
      */
